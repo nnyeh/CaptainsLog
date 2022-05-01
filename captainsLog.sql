@@ -58,7 +58,8 @@ CREATE TABLE `post` (
   `fid` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
   `ship` varchar(40) NOT NULL,
-  `text` varchar(400) NOT NULL
+  `text` varchar(400) NOT NULL,
+  `title` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
