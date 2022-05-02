@@ -1,6 +1,6 @@
 :root {
     --background-color: white;
-    --hover-color: #5E81AC;
+    --hover-color: #75a1d8;
     --link-color: #2E3440;
     --outline-color: #2E3440;
     --toggle-color: #2E3440;
@@ -50,10 +50,10 @@ body::-webkit-scrollbar {display: none;}
     font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
 }
 
-.title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {color: var(--link-color)}
+#title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {color: var(--link-color)}
+#title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {transition: color ease-in-out .3s;}
+#title:hover, a#add:hover, a#search:hover, a#browse:hover, a#log:hover, a#settings:hover, a#login:hover, a#register:hover {text-decoration: none; color: var(--hover-color)}
 a:visited, a:active {text-decoration: none; color: var(--link-color)}
-a:hover {text-decoration: none; color: var(--hover-color)}
-.title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register, a:visited, a:active, a:hover {transition: color ease-in-out .3s;}
 
 .flex {
     display: flex;
