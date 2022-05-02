@@ -1,4 +1,22 @@
-html {background: white;}
+:root {
+    --background-color: white;
+    --hover-color: #75a1d8;
+    --link-color: #2E3440;
+    --outline-color: #2E3440;
+    --toggle-color: #2E3440;
+    --footertext-color: #D8DEE9;
+}
+
+[data-theme="dark"] {
+    --background-color: #2E3440;
+    --hover-color: #5E81AC;
+    --link-color: #ECEFF4;
+    --outline-color: #ECEFF4;
+    --toggle-color: #ECEFF4;
+    --footertext-color: #4C566A;
+}
+
+html {background: var(--background-color); transition: background ease-in-out .3s;}
 
 body {
     display: flex;
@@ -18,8 +36,24 @@ body {
 body::-webkit-scrollbar {display: none;}
 .middlebox::-webkit-scrollbar {display: none;}
 
-a:link, a:visited, a:active {text-decoration: none; color: black}
-a:hover {text-decoration: none; color: #217EF7}
+#anchor {
+    vertical-align: middle;
+    font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#toggle {
+    display: inline;
+    vertical-align: middle;
+    font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
+}
+
+.title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {color: var(--link-color)}
+.title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {transition: color ease-in-out .3s;}
+#title:hover, a#add:hover, a#search:hover, a#browse:hover, a#log:hover, a#settings:hover, a#login:hover, a#register:hover {text-decoration: none; color: var(--hover-color)}
+a:visited, a:active {text-decoration: none; color: var(--link-color)}
 
 .flex {
     display: flex;
@@ -31,6 +65,9 @@ a:hover {text-decoration: none; color: #217EF7}
 #search::after{content: "\a"; white-space: pre;}
 #browse::after{content: "\a"; white-space: pre;}
 #log::after{content: "\a"; white-space: pre;}
+
+#login::after{content: "\a"; white-space: pre;}
+#register::after{content: "\a"; white-space: pre;}
 
 .left {
     flex: 1;
@@ -62,23 +99,53 @@ a:hover {text-decoration: none; color: #217EF7}
     height: 90vh;
     aspect-ratio: 3/3.99;
     overflow: auto;
-    outline: 1px solid black;
+    outline: 1px solid var(--outline-color);
+    transition: outline ease-in-out .3s;
 }
 
 img {
     width: 33.333333%;
     height: auto;
-    outline: 1px solid black;
+    outline: 1px solid var(--outline-color);
+    transition: outline ease-in-out .3s;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    outline: 0;
+}
+
+#checkbox {
+    margin-top: 5px;
+    margin-left: -8px;
+}
+
+.right {
+    flex: 1;
+    margin-left: calc(6.18px + (30 - 6.18) * ((100vh - 197px) / (956 - 197)));
+    font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
+}
+
+.account {
+    margin-bottom: calc(103px + (571 - 103) * ((100vh - 197px) / (956 - 197)));
 }
 
 footer {
     white-space: nowrap;
-    margin-top: calc(148.94px + (723 - 148.94) * ((100vh - 197px) / (956 - 197)));
-    margin-left: calc(6.18px + (30 - 6.18) * ((100vh - 197px) / (956 - 197)));
-    flex: 1;
     max-width: 200px;
     font-size: calc(4.12px + (20 - 4.12) * ((100vh - 197px) / (956 - 197)));
-    color: lightgray;
+    color: var(--footertext-color);
+    transition: color ease-in-out .3s;
+}
+
+#toggle {
+    font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
+    cursor: pointer;
+    color: var(--toggle-color);
+    transition: color ease-in-out .3s;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 @media only screen and (max-width: 1166px) {
@@ -109,13 +176,29 @@ footer {
     }
 
     .middlebox {
-        max-width: 100vw;
+        max-width: 94vw;
         height: 70vh;
     }
 
-    footer {
-        margin-top: 0px;
+    #checkbox {
+    margin-top: 0px;
+    margin-left: -50px;
+    }
+
+    .right {
         margin-left: 0px;
     }
-}
+    
+    .account {
+        margin-bottom: 0px;
+        margin-left: 250px;
+        margin-top: 15px;
+    }
 
+    footer {
+        margin-left: 40px;        
+        margin-top: -92px;
+        display: flex;
+        align-items: center;
+    }
+}
