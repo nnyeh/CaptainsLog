@@ -4,6 +4,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="icon" href="favicon.png">
     <meta charset="utf-8">
     <title>captain's log</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +19,14 @@
     <div class="left">
         <div class="title">
             <a>captain's log</a>
+            <span id="anchor" class="material-icons">anchor</span>
         </div>
         <div class="menu">
             <a id="add">add an entry</a>
             <a id="search">search</a>
             <a id="browse">browse</a>
             <a id="log">your log</a>
-            <a>settings</a>
+            <a id="settings">settings</a>
         </div>
     </div>
 
@@ -50,17 +54,62 @@
         <img src="example.jpg" alt="example">
     </div>
 
-    <footer>
-        <p class="footertext">
-        group <b>tre</b>
-        <br>
-        frontend by <b>emsa</b>
-        <br>
-        backend by <b>toni</b> and <b>ricu</b>
-        </p>
-    </footer>
+    <div class="right">
+        <div class="account">
+            <a id="login">login</a>
+            <a id="register">register</a>
+        </div>
+        <footer>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <span id="toggle" class="material-icons-outlined mode"></span>
+                </input>
+            </label>
+            <p class="footertext">
+            group <b>tre</b>
+            <br>
+            frontend by <b>emsa</b>
+            <br>
+            backend by <b>toni</b> and <b>ricu</b>
+            </p>
+        </footer>
+    </div>
 
 </div>
+
+<script>
+const toggleSwitch = document.querySelector(".theme-switch input[type='checkbox']");
+const currentTheme = localStorage.getItem("theme");
+var mode = document.getElementById("toggle")
+
+if (currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme);
+  
+    if (currentTheme === "dark") {
+        toggleSwitch.checked = true;
+        mode.innerHTML = "light_mode";
+    }
+
+    if (currentTheme === "light") {
+        toggleSwitch.checked = false;
+        mode.innerHTML = "dark_mode";
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        mode.innerHTML = "light_mode";
+    }
+    else {document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        mode.innerHTML = "dark_mode";
+    }    
+}
+
+toggleSwitch.addEventListener("change", switchTheme, false);
+</script>
 
 </body>
 </html>
