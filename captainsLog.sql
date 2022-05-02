@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql.metropolia.fi
--- Generation Time: 01.05.2022 klo 15:25
+-- Generation Time: 02.05.2022 klo 10:15
 -- Palvelimen versio: 10.5.15-MariaDB
 -- PHP Version: 7.4.28
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `captainsLog`
 --
-CREATE DATABASE IF NOT EXISTS `captainsLog` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `captainsLog`;
 
 -- --------------------------------------------------------
 
@@ -32,7 +30,9 @@ USE `captainsLog`;
 CREATE TABLE `comment` (
   `fid` int(11) NOT NULL,
   `comment_id` int(11) NOT NULL,
-  `text` varchar(380) NOT NULL
+  `text` varchar(380) NOT NULL,
+  `comment_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `author` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -44,8 +44,7 @@ CREATE TABLE `comment` (
 CREATE TABLE `image` (
   `fid` int(11) NOT NULL,
   `image_id` int(11) NOT NULL,
-  `pic` longblob NOT NULL,
-  `pic_name` varchar(40) NOT NULL
+  `pic_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,7 +58,7 @@ CREATE TABLE `post` (
   `post_id` int(11) NOT NULL,
   `ship` varchar(40) NOT NULL,
   `text` varchar(400) NOT NULL,
-  `title` varchar(40) NOT NULL
+  `post_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -71,7 +70,9 @@ CREATE TABLE `post` (
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
-  `pic` longblob NOT NULL
+  `pic` varchar(255) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -83,7 +84,8 @@ CREATE TABLE `user` (
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`),
-  ADD KEY `comment_ibfk_1` (`fid`);
+  ADD KEY `comment_ibfk_1` (`fid`),
+  ADD KEY `writes` (`author`);
 
 --
 -- Indexes for table `image`
@@ -141,7 +143,8 @@ ALTER TABLE `user`
 -- Rajoitteet taululle `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`fid`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`fid`) REFERENCES `post` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `writes` FOREIGN KEY (`author`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Rajoitteet taululle `image`
