@@ -1,10 +1,10 @@
 :root {
-    --background-color: white;
-    --hover-color: #75a1d8;
+    --background-color: #FFF;
+    --hover-color: #7BAAE2;
     --link-color: #2E3440;
     --outline-color: #2E3440;
     --toggle-color: #2E3440;
-    --footertext-color: #D8DEE9;
+    --footertext-color: #C7C7C7;
 }
 
 [data-theme="dark"] {
@@ -51,9 +51,9 @@ body::-webkit-scrollbar {display: none;}
 }
 
 a {text-decoration: none;}
-.title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {color: var(--link-color)}
-.title, #title, a#add, a#search, a#browse, a#log, a#settings, a#login, a#register {transition: color ease-in-out .3s;}
-.title:hover, #title:hover, a#add:hover, a#search:hover, a#browse:hover, a#log:hover, a#settings:hover, a#login:hover, a#register:hover {color: var(--hover-color); transition: none;}
+.title, #add, #search, #browse, #log, #settings, #login, #register {color: var(--link-color)}
+.title, #title, #add, #search, #browse, #log, #settings, #login, #register {transition: color ease-in-out .3s;}
+.title:hover, #title:hover, #add:hover, #search:hover, #browse:hover, #log:hover, #settings:hover, #login:hover, #register:hover {color: var(--hover-color); transition: none;}
 a:visited, a:active {color: var(--link-color)}
 
 .flex {
@@ -62,13 +62,13 @@ a:visited, a:active {color: var(--link-color)}
     justify-content: center;
 }
 
-#add::after{content: "\a"; white-space: pre;}
-#search::after{content: "\a"; white-space: pre;}
-#browse::after{content: "\a"; white-space: pre;}
-#log::after{content: "\a"; white-space: pre;}
+#add::after {content: "\a"; white-space: pre;}
+#search::after {content: "\a"; white-space: pre;}
+#browse::after {content: "\a"; white-space: pre;}
+#log::after {content: "\a"; white-space: pre;}
 
-#login::after{content: "\a"; white-space: pre;}
-#register::after{content: "\a"; white-space: pre;}
+#login::after {content: "\a"; white-space: pre;}
+#register::after {content: "\a"; white-space: pre;}
 
 .left {
     flex: 1;
@@ -151,10 +151,11 @@ footer {
 
 @media only screen and (max-width: 1166px) {
 
-    #add::after{content: "  ";}
-    #search::after{content: "\a"; white-space: pre;}
-    #browse::after{content: "  ";}
-    #log::after{content: "  ";}
+    #add::after {content: "  ";}
+    #search::after {content: "\a"; white-space: pre;}
+    #browse::after {content: "  ";}
+    #log::after {content: "  ";}
+    #login::after {content: "    ";}
 
     .left {
         margin-right: 0px;
@@ -182,24 +183,32 @@ footer {
     }
 
     #checkbox {
-    margin-top: 0px;
-    margin-left: -50px;
+        margin-top: 0px;
     }
 
     .right {
+        display: flex;
         margin-left: 0px;
+        flex-direction: column;
+        align-items: center;
     }
     
     .account {
+        display: flex;
+        align-items: center;
         margin-bottom: 0px;
-        margin-left: 250px;
-        margin-top: 15px;
+        justify-content: center;
     }
 
     footer {
-        margin-left: 40px;        
-        margin-top: -92px;
         display: flex;
         align-items: center;
+        margin-bottom: 0px;
+        justify-content: center;
+    }
+
+    .footertext {
+        margin-right: 30px;
+        text-align: center;
     }
 }
