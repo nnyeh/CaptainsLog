@@ -18,40 +18,51 @@
 
     <div class="left">
         <div class="title">
-            <a id="title" href="main.html">captain's log</a>
+            <a>captain's log</a>
             <span id="anchor" class="material-icons">anchor</span>
         </div>
         <div class="menu">
             <a id="add">add an entry</a>
             <a id="search">search</a>
-            <a id="browse">browse</a>
+            <a id="browse" href="main.html">browse</a>
             <a id="log">your log</a>
-            <a id="settings">settings</a>
         </div>
     </div>
 
     <div class="middlebox">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
+        <div id="imagediv" style="display: none">
+            <div id="top">
+                <a id="accountname">account name</a>
+                <button id="close" onclick="closeImage()"><span id="closeicon" class="material-icons">close</span></button>
+            </div>
+            <div id="midimage">
+                <img class="bigimage" src="example.jpg" alt="example">
+            </div>
+            <div id="bottom">
+                <p id="bottomtext">Lorem ipsum dolor sit amet, consectetur efficitur.</p>
+            </div>
+        </div>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
     </div>
 
     <div class="right">
@@ -65,19 +76,29 @@
                 <span id="toggle" class="material-icons-outlined mode"></span>
                 </input>
             </label>
-            <p class="footertext">
+            <div class="footertext">
             group <b>tre</b>
             <br>
             frontend by <b>emsa</b>
             <br>
             backend by <b>toni</b> and <b>ricu</b>
-            </p>
+            </div>
         </footer>
     </div>
 
 </div>
 
 <script>
+function showImage() {
+    var x = document.getElementById("imagediv");
+    x.style.display = "flex";
+}
+
+function closeImage() {
+    var x = document.getElementById("imagediv");
+    x.style.display = "none";
+}
+
 const toggleSwitch = document.querySelector(".theme-switch input[type='checkbox']");
 const currentTheme = localStorage.getItem("theme");
 var mode = document.getElementById("toggle")
