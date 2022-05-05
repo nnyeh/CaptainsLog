@@ -31,27 +31,39 @@
     </div>
 
     <div class="middlebox">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
-        <img src="example.jpg" alt="example">
+        <div id="imagediv" style="display: none">
+            <div id="top">
+                <a id="accountname">account name</a>
+                <button id="close" onclick="closeImage()"><span id="closeicon" class="material-icons">close</span></button>
+            </div>
+            <div id="midimage">
+                <img class="bigimage" src="example.jpg" alt="example">
+            </div>
+            <div id="bottom">
+                <p id="bottomtext">Lorem ipsum dolor sit amet, consectetur efficitur.</p>
+            </div>
+        </div>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
+        <button class="imagebutton" id="" onclick="showImage()"><img class="collage" src="example.jpg" alt="example"></button>
     </div>
 
     <div class="right">
@@ -78,6 +90,16 @@
 </div>
 
 <script>
+function showImage() {
+    var x = document.getElementById("imagediv");
+    x.style.display = "flex";
+}
+
+function closeImage() {
+    var x = document.getElementById("imagediv");
+    x.style.display = "none";
+}
+
 const toggleSwitch = document.querySelector(".theme-switch input[type='checkbox']");
 const currentTheme = localStorage.getItem("theme");
 var mode = document.getElementById("toggle")
