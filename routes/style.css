@@ -52,8 +52,8 @@ body::-webkit-scrollbar {display: none;}
 
 a {text-decoration: none;}
 .title, #add, #search, #browse, #log, #settings, #login, #register {color: var(--link-color)}
-.title, #title, #add, #search, #browse, #log, #settings, #login, #register {transition: color ease-in-out .3s;}
-#title:hover, #add:hover, #search:hover, #browse:hover, #log:hover, #settings:hover, #login:hover, #register:hover {color: var(--hover-color); transition: none;}
+.title, #add, #search, #browse, #log, #settings, #login, #register {transition: color ease-in-out .3s;}
+#add:hover, #search:hover, #browse:hover, #log:hover, #settings:hover, #login:hover, #register:hover {color: var(--hover-color); transition: none;}
 a:visited, a:active {text-decoration: none; color: var(--link-color)}
 
 .flex {
@@ -81,7 +81,10 @@ a:visited, a:active {text-decoration: none; color: var(--link-color)}
     white-space: nowrap;
     text-align: right;
     font-size: calc(7.21px + (35 - 7.21) * ((100vh - 197px) / (956 - 197)));
-    margin-bottom: calc(103px + (500 - 103) * ((100vh - 197px) / (956 - 197)));
+    margin-bottom: calc(108.15px + (525 - 108.15) * ((100vh - 197px) / (956 - 197)));
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 .menu {
@@ -166,6 +169,7 @@ a:visited, a:active {text-decoration: none; color: var(--link-color)}
 }
 
 #bottomtext {
+    display: flex;
     font-size: calc(4.12px + (20 - 4.12) * ((100vh - 197px) / (956 - 197)));
     margin-left: 40px;
     margin-right: 40px;

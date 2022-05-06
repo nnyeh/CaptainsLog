@@ -1,0 +1,23 @@
+|<!DOCTYPE html>
+head
+  meta(charset='UTF-8')
+  title Title
+  link(href='./css/style.css' rel='stylesheet')
+h1 Register
+
+article
+
+ form(class="form-register" method="POST" action="/register")
+   p 
+   label( for="inputEmail" class="") Email address
+   input(type="email" name="username" id="inputEmail" class="" placeholder="Email address" required autofocus)
+ 
+   p 
+   label(for="inputPassword" class="") Password
+   input(type="password" name="password" id="inputPassword" class="" placeholder="Password" required)
+   
+   p
+   - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
+   button(class=buttonClass type="submit") Send registration info
+			
+

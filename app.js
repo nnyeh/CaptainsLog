@@ -1,15 +1,19 @@
 'use strict';
 require('dotenv').config()
 const express = require('express');
-const catRoute = require('./routes/catRoute');
+const pug = require('pug');
+
 const webRoute = require('./routes/webRoute');
-const catModel = require('./models/catModel');
-const userRoute = require('./routes/userRoute');
+const webModel = require('./models/catModel');
 const userModel = require('./models/userModel');
 const app = express();
 const port = 3000;
 var cors = require('cors')
 
+const loginPage = pug.compileFile('views/login_page.pug');
+const registerPage = pug.compileFile('views/register_page.pug');
+app.set('views', './views');
+app.set('view engine', 'pug');
 
 
 app.use(express.json()) // for parsing application/json
@@ -17,17 +21,14 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(express.static('routes'))
 app.use(express.static('uploads'))
 app.use(express.static(__dirname))
+app.use(express.static('public'))
+app.use(express.static('files'))
 
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-app.use('/user', userRoute)
-app.use('/cat', catRoute)
 app.use('/', webRoute)
-app.use('/login', webRoute)
-app.use('/register', webRoute)
-app.use('/post', webRoute)
 app.use(cors())
 app.use(express.static(__dirname + '/public/'))
 
@@ -36,9 +37,29 @@ app.get('/test', function (req, res, next) {
   res.json({msg: 'This is CORS-enabled for all origins!'})
 })
 
+app.get('/login', (req, res) => {
+	res.send(loginPage());
+})
 
+app.get('/register', (req, res) => {
+  res.send(registerPage());
+});
 
+/* Login user */
+app.post('/login', function (req, res, next) {
+	
+	console.log(req.body);
+	
+	res.send("Login "+req.body.username);
+});
 
+app.post('/register', function (req, res, next) {
+	
+	console.log(req.body);
+	
+	res.send("Register "+req.body.username);
+	
+});
 
 
 
