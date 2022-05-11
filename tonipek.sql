@@ -1,3 +1,72 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: mysql.metropolia.fi
+-- Generation Time: May 11, 2022 at 08:18 AM
+-- Server version: 10.5.15-MariaDB
+-- PHP Version: 7.4.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `tonipek`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `post`
+--
+
+CREATE TABLE `post` (
+  `user_id` int(11) DEFAULT NULL,
+  `post_id` int(11) NOT NULL,
+  `ship` varchar(40) NOT NULL,
+  `text` varchar(400) NOT NULL,
+  `filename` text CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`user_id`, `post_id`, `ship`, `text`, `filename`) VALUES
+(1, 7, 'Sailing boat', 'Esim 1', 'c83ac1ea06ca1051cccafed979567683'),
+(1, 8, 'Sailing boat', 'Esim 2', '7fb9f3df8514a414ba933d5d8a7293c0'),
+(1, 9, 'QM2', 'Ship', 'de38281165896c15d0d36b13b3f324f0'),
+(1, 10, 'testi', 'testi3', '3cd0960ae5af359f8382b610223bece6'),
+(1, 11, 'Sailing boat', 'testi4', '1415ea6f16100c9e637c184b51067e23'),
+(1, 12, 'Sailing boat', 'esim 7', 'ed53afd2d911643cce04e93ee55f6372'),
+(1, 14, 'Yacht', 'Esim 8', '0f032fe12e557f5198138a1dee3db206'),
+(1, 15, 'Bathtub', 'Cat', '4cd1ccd18410f1014a6f88170dfb42fc'),
+(1, 16, 'Sailing boat', 'testi', 'f092b2a32e64a35dd26b8878b22e4125');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
 INSERT INTO `user` (`user_id`, `name`, `email`, `password`) VALUES
 (1, 'admin', 'admin@admin.com', 'admin123'),
 (4, 'MrKala', 'tonikart@live.com', '123'),
