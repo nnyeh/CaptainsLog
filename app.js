@@ -23,7 +23,6 @@ app.set('view engine', 'pug');
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(express.static('routes'))
-app.use(express.static('css'))
 app.use(express.static('views'))
 app.use(express.static('uploads'))
 app.use(express.static(__dirname))

@@ -40,6 +40,7 @@ router.route('/login')
 
 router.get('/logout', function (req, res) {
   res.clearCookie('user');
+  res.clearCookie('user_id');
   res.redirect('/');
 })
 
@@ -50,7 +51,7 @@ router.get('/getuserinfo', function (req, res) {
 router.get('/allposts', webController.post_list_get);
 
 router.get('/post_image',function(req,res){
-  res.send(postImage());
+  res.render('post_image');
  
 });
 

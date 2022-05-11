@@ -10,6 +10,10 @@ body {
     max-width: 100%;
 }
 
+div {
+	padding: 3%;
+	
+}
 body, button, input {
     font-family: "Manrope", sans-serif;
 }
@@ -41,4 +45,8 @@ button {
 
 button:hover {
     background-color: #7BAAE2;
+}
+
+#text{
+	text-align: center;
 }
