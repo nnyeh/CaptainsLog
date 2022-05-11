@@ -3,79 +3,18 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
-const getAllUsers = async () => {
+const addUser = async (user, res) => {
   try {
-    const [rows] = await promisePool.query('SELECT * FROM user');
+    const [rows] = await promisePool.query(`INSERT INTO user(name, email, password) VALUES ("${user.username}","${user.email}","${user.password}")`);
+    console.log(`User  insert`, rows, rows[0]);
     return rows;
   } catch (e) {
-    console.error('error', e.message);
-  }
-};
-
-const getPostsFromUser = async (id) => {
-  try {
-    // TODO: do the LEFT (or INNER) JOIN to get owner's name as ownername (from wop_user table).
-    const [rows] = await promisePool.query('SELECT * FROM wop_user WHERE user_id = '+id);
-    return rows;
-  } catch (e) {
-    console.error('error', e.message);
-  }
-};
-
-const getUserCount = async () => {
-  try {
-    const [rows] = await promisePool.query('SELECT COUNT(*) FROM user');
-    return rows;
-  } catch (e) {
-    console.error('error', e.message);
-  }
-};
-
-const addUser = async (user) => {
-  try {
-    const [rows] = await promisePool.query('INSERT INTO user (name,email,password,role) VALUES("'+user.name+'","'+user.email+'","'+user.passwd+'",1)');
-    return rows;
-  } catch (e) {
-    console.error('error', e.message);
+    console.error('User model createUser error', e.message);
+    return;
   }
 };
 
 module.exports = {
-  getAllUsers,
+  addUser
   
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-'use strict';
-const users = [
-  {
-    id: '1',
-    name: 'John Doe',
-    email: 'john@metropolia.fi',
-    password: '1234',
-  },
-  {
-    id: '2',
-    name: 'Jane Doez',
-    email: 'jane@metropolia.fi',
-    password: 'qwer',
-  },
-];
-
-module.exports = {
-  users,
-};
-*/

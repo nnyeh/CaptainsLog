@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    max-height: 100vh;
+    transform: scale(2);
+    overflow: hidden;
+    max-width: 100%;
+}
+
+body, button, input {
+    font-family: "Manrope", sans-serif;
+}
+
+h1 {
+    line-height: 0px;
+    padding-bottom: 10px;
+}
+
+input {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+}
+
+input::placeholder{
+    color: #C7C7C7;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+    outline: none;
+}
+
+button {
+    background-color: white;
+    border-color: black;
+}
+
+button:hover {
+    background-color: #7BAAE2;
+}

@@ -1,0 +1,21 @@
+doctype html
+head
+  meta(charset='utf8')
+  title Example
+  link(href='./css/ui2.css' rel='stylesheet')
+
+.container
+  h3 Add post
+  #post-wrapper.forms
+    .form-wrapper
+      form#post-form.light-border(action='/post_image' method='post' enctype='multipart/form-data')
+        div
+          label Title:
+          input.light-border(type='text' name='Title')
+        div
+          label Ship:
+          input.light-border(type='text' name='Ship')
+        div
+          input.light-border(type='file' name='image' accept='image/*' placeholder='Choose file' required='')
+        div
+          button.light-border(type='submit') Post

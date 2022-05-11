@@ -1,0 +1,52 @@
+doctype html
+head
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans:wght@300&display=swap' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons+Outlined' rel='stylesheet')
+    link(rel='icon' href='favicon.ico')
+    meta(charset='utf-8')
+    title captain&apos;s log
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='style.css')
+.flex
+    .left
+        .title
+            aa(href='/') captain&apos;s log  
+            span#anchor.material-icons anchor
+        .menu
+            a#add(href='/post_image') add an entry
+            a#search search
+            a#browse(href='/') browse
+            a#log your log
+    #gallery.middlebox
+    #imagediv(style='display: none')
+        #top
+            a#accountname
+            button#close(onclick='closeImage()')
+                span#closeicon.material-icons close
+        #midimage
+            img#bigimage(src='' alt='example')
+        #bottom
+            p#bottomtext(display='flex')
+    .right
+        .account
+            a#login(href='/login') login
+            a#register(href='/register') register
+        footer
+            label.theme-switch(for='checkbox')
+                input#checkbox(type='checkbox')
+                span#toggle.material-icons-outlined
+            .footertext
+                | group  
+                b tre 
+                br
+                |             frontend by  
+                b emsa 
+                br
+                |             backend by  
+                b toni 
+                |  and  
+                b ricu
+script(src='main.js')

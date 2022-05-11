@@ -1,23 +1,21 @@
-|<!DOCTYPE html>
+doctype html
 head
   meta(charset='UTF-8')
-  title Title
-  link(href='./css/style.css' rel='stylesheet')
-h1 Register
-
+  title register
+  link(href='https://fonts.googleapis.com/css2?family=Manrope&family=Open+Sans:wght@300&display=swap' rel='stylesheet')
+  link(href='style1.css' rel='stylesheet')
 article
+  h1 registration
+  form.form-register(method='POST' action='/register')
+    p  
+    input#inputUsername(type='text' name='username' placeholder='username' required='required' autofocus='autofocus')
+    p  
+    input#inputEmail(type='email' name='email' placeholder='email address' required='required' autofocus='autofocus')
+    p  
+    input#inputPassword(type='password' name='password' placeholder='password' required='required' autofocus='autofocus')
+    p
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') register
 
- form(class="form-register" method="POST" action="/register")
-   p 
-   label( for="inputEmail" class="") Email address
-   input(type="email" name="username" id="inputEmail" class="" placeholder="Email address" required autofocus)
- 
-   p 
-   label(for="inputPassword" class="") Password
-   input(type="password" name="password" id="inputPassword" class="" placeholder="Password" required)
-   
-   p
-   - var buttonClass=['btn', 'btn-lg', 'btn-primary', 'btn-block'];
-   button(class=buttonClass type="submit") Send registration info
+
 			
 
